@@ -1,0 +1,431 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root{
+    --background: #f6fbff;
+    --background2: #fafcff;
+    --cor1: #8844ee;
+    --cor2: #B07DFB;
+}
+
+body{
+    font-family: 'Vollkorn', Georgia, serif;
+
+    background-color: var(--background);
+}
+
+img{
+    width: 100%;
+    display: block;
+
+    border-radius: 5px;
+}
+
+/*GRID GERAL*/
+
+.estrutura{
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+    grid-template-areas: 
+        "header     header      header"
+        "sidenav    content     anuncios"
+        "footer     footer       footer";
+}
+
+/*HEADER*/
+
+.header{
+    grid-area: header;
+
+    background-image: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.logo{
+    max-width: 200px;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu a{
+    display: block;
+
+    padding: 10px;
+    
+    color: white;
+    font-size: 1.2em;
+
+    background-color: rgb(0, 0, 0, .1);
+    border-radius: 5px;
+    transition: 0.1s;
+}
+
+.menu a:hover{
+    background-color: rgb(0, 0, 0, .3);
+}
+
+.menu li + li{
+    margin-left: 30px;
+}
+
+/*SIDENAV*/
+
+.sidenav{
+    grid-area: sidenav;
+
+    background-color: var(--background);
+
+    padding: 30px;
+}
+
+.sidenav a{
+    display: block;
+
+    min-width: 60px;
+    max-width: 100px;
+
+    margin: 0 auto 30px auto;
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgb(44, 44, 44, 0.15);
+
+    transition: .1s ease-out;
+}
+
+.sidenav a:hover{
+    background-color: var(--cor2);
+}
+
+/*CONTEÚDO*/
+
+.conteudo{
+    grid-area: content;
+
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    background-color: var(--background2);
+    box-shadow: 2px 2px 15px 0px rgb(0, 0, 0, .15);
+}
+
+.col-wide{
+    grid-column: 1 / -1;
+}
+
+.imagem-1{
+    grid-row: span 2;
+
+    align-self: end;
+}
+
+.imagem-2{
+    align-self: end;
+}
+
+/*ESTILOS CONTEÚDO*/
+
+.conteudo p{
+    font-size: 1.2em;
+    line-height: 1.6em;
+    letter-spacing: -0.005em;
+    color: rgb(0, 0, 0, .75);
+}
+
+.informacoes p + p{
+    margin-top: 30px;
+}
+
+/*TÍTULO*/
+
+.titulo{
+    color: var(--cor2);
+}
+
+.titulo h1{
+    font-size: 3.7em;
+    line-height: 1em;
+    font-weight: 700;
+}
+
+.titulo span{
+    font-style: italic;
+}
+
+/*CARACTERÍSTICAS*/
+
+.caracteristicas{
+    display: flex;
+
+    align-items: flex-start;
+}
+
+.caracteristicas > div{
+    width: 80px;
+
+    text-align: center;
+
+    background-image: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgb(44, 44, 44, 0.15);
+
+    position: relative;
+}
+
+.caracteristicas > div:first-child{
+    margin-right: 30px;
+}
+
+.caracteristicas span{
+    display: block;
+
+    color: var(--cor2);
+}
+
+.numero{
+    color: var(--cor2);
+    font-size: 3em;
+    line-height: 1em;
+    margin: 10px auto;
+}
+
+.rotulo{
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+
+    padding: 5px 0;
+
+    position: relative;
+    top: 2px;
+}
+
+#destaque{
+    color: var(--cor2);
+    font-size:  1.05em;
+
+    max-width: 16em;
+}
+
+.citacao, .atributos{
+    background-image: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+    color: white;
+
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0 rgb(44, 44, 44, 0.15);
+}
+
+.citacao{
+    text-align: center;
+    color: rgb(0, 0, 0, .6);
+}
+
+.citacao p{
+    color: white;
+    font-size: 1.8em;
+    font-style: italic;
+    margin: 0 auto;
+
+    max-width: 500px;
+}
+
+.atributos{
+    align-self: start;
+}
+
+.atributos li{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.15em;
+
+    padding: 15px;
+}
+
+.atributos li + li{
+    border-top: 2px solid var(--cor2);
+}
+
+.lobo-3{
+    justify-self: center;
+}
+
+/*ANUNCIOS*/
+
+.anuncios{
+    grid-area: anuncios;
+    gap: 30px;
+
+    background-color: var(--background);
+
+    display: grid;
+    align-content: start;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    padding: 30px;
+}
+
+/*FOOTER*/
+
+.footer{
+    grid-area: footer;
+
+    background-image: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+    margin-top: 30px;
+}
+
+.footer p{
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+
+    padding: 10px;
+}
+
+.footer a{
+    color: white;
+
+    transition: .2s ease-out;
+}
+
+.footer a:hover{
+    color: rgb(0, 0, 0, .75);
+
+    font-weight: bold;
+}
+
+.footer .contato{
+    font-size: 14px;
+    text-align: end;
+    color: rgb(0, 0, 0, .7);
+    font-weight: bold;
+
+    line-height: 0.5em;
+}
+
+@media screen and (min-width: 760px) and (max-width: 1200px) {
+    .estrutura{
+        display: grid;
+        grid-template-columns: minmax(160px, 1fr) 3fr;
+        grid-template-areas: 
+            "header     header"
+            "sidenav    content"
+            "sidenav    anuncios"
+            "footer     footer";
+    }
+
+    .conteudo{
+        margin-right: 60px;
+    }
+
+    .anuncios{
+        padding-left: 0px;
+        margin: 10px auto;
+
+        max-width: 700px;
+    }
+}
+
+@keyframes seta{
+    from{
+        right: 30px;
+    }
+
+    to{
+        right: 20px;
+    }
+}
+
+@media screen and (max-width: 759px) {
+    .estrutura{
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "header"
+            "sidenav"
+            "content"
+            "anuncios"
+            "footer";
+    }
+
+    /*HEADER*/
+
+    .header{
+        grid-template-columns: auto;
+        gap: 30px;
+    }
+
+    .menu a{
+        font-size: 1em;
+    }
+
+    .menu li + li{
+        margin-left: 10px;
+    }
+
+    /*SIDENAV*/
+
+    .sidenav{
+        padding: 0 30px;
+
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        position: relative;
+    }
+
+    .sidenav::after{
+        content: '→';
+
+        position: absolute;
+        top: 5px;
+        right: 30px;
+
+        color: rgb(0, 0, 0, .4);
+
+        animation: seta .5s ease-in 0s infinite alternate;
+    }
+
+    .sidenav ul{
+        display: flex;
+    }
+
+    .sidenav li{
+        flex: 1 0 60px;
+        margin: 30px 30px 0 0;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .conteudo{
+        grid-template-columns: auto;
+    }
+
+    #destaque{
+        text-align: center;
+        margin: auto;
+    }
+}
